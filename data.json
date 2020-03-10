@@ -1,0 +1,64 @@
+{
+  "products": [
+    {
+      "ID": "1",
+      "Name": "DillChips",
+      "Price": "20kr",
+      "image": "images/"
+    },
+    {
+      "ID": "2",
+      "Name": "SourcreamChips",
+      "Price": "20kr",
+      "image": "images/"
+    },
+    {
+      "ID": "3",
+      "Name": "GrillChips",
+      "Price": "20kr",
+      "image": "images/"
+    },
+    {
+      "ID": "4",
+      "Name": "SaltaChips",
+      "Price": "18kr",
+      "image": "images/"
+    },
+    {
+      "ID": "5",
+      "Name": "GräddfilChips",
+      "Price": "18kr",
+      "image": "images/"
+    },
+    {
+      "ID": "6",
+      "Name" : "Kexchocklad",
+      "Price" : "7kr",
+      "image": "images/"
+    },
+    {
+      "ID": "7",
+      "Name" : "Mjölkchocklad",
+      "Price" : "10kr",
+      "image": "images/"
+    },
+    {
+      "ID": "8",
+      "Name" : "Fanta",
+      "Price" : "17kr",
+      "image": "images/"
+    },
+    {
+      "ID": "9",
+      "Name" : "Kola",
+      "Price" : "17kr",
+      "image": "images/"
+    },
+    {
+      "ID": "10",
+      "Name" : "Sprite",
+      "Price" : "17kr",
+      "image": "images/"
+    }
+  ]
+}
