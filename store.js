@@ -1,26 +1,31 @@
-if (document.readyState == 'loading') {
-    document.addEventListener('DOMContentLoaded', ready)
-} else {
+
+    generateProducts()
     ready()
-}
+
 
 function ready() {
+    console.log("ready blir kord")
     var removeCartItemButtons = document.getElementsByClassName('btn-danger')
     for (var i = 0; i < removeCartItemButtons.length; i++) {
         var button = removeCartItemButtons[i]
         button.addEventListener('click', removeCartItem)
+        // console.log("hejhejhej")
     }
 
     var quantityInputs = document.getElementsByClassName('cart-quantity-input')
     for (var i = 0; i < quantityInputs.length; i++) {
         var input = quantityInputs[i]
         input.addEventListener('change', quantityChanged)
+
     }
 
     var addToCartButtons = document.getElementsByClassName('shop-item-button')
+    console.log(addToCartButtons.length)
     for (var i = 0; i < addToCartButtons.length; i++) {
         var button = addToCartButtons[i]
+        console.log(addToCartButtons.length)
         button.addEventListener('click', addToCartClicked)
+
     }
 
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
@@ -50,6 +55,7 @@ function quantityChanged(event) {
 }
 
 function addToCartClicked(event) {
+    console.log('heeeeej')
     var button = event.target
     var shopItem = button.parentElement.parentElement
     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
@@ -100,4 +106,35 @@ function updateCartTotal() {
     }
     total = Math.round(total * 1) / 1
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
+}
+
+function generateProducts() {
+    console.log("generateBlirKord")
+    $.getJSON("data.json", function(response){
+
+        let productsContainer = document.getElementById("product-container");
+        for (let i = 0; i <response.products.length ; i++) {
+            let input = "";
+            input = '<div class="shop-item"> ' +
+                '<span class="shop-item-title">' + response.products[i].Name + '</span>' +
+                '<img class="shop-item-image" src="' + response.products[i].image + '">' +
+                '<div class="shop-item-details">' +
+                '<span class="shop-item-price">' + response.products[i].Price + '</span>' +
+                '<button class="btn btn-primary shop-item-button" type="button">Lägg till i varukorgen</button>\n' +
+                '</div>' +
+                '</div>';
+            productsContainer.innerHTML += input;
+            ready()
+        }
+        var addToCartButtons = document.getElementsByClassName('shop-item-button')
+        console.log(addToCartButtons.length)
+        console.log('printad fran generate')
+
+        // let result = "";
+        // for(let i = 0; i < 10; i++){
+        //     result = result + "<button id = 'produkt'>" + response.products[i].Name + "</button> <br> <br>";
+        // }
+        // document.getElementById("products").innerHTML = result;
+        // console.log(response.products[]);
+    })
 }
